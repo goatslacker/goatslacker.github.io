@@ -11,6 +11,7 @@ else c[b]?console.error("Invalid name: "+b+"."):c.templates[b]?console.error('Te
 g.type||"text/x-icanhaz"===g.type))c.addTemplate(g.id,a(g.innerHTML)),h.unshift(g);b=0;for(d=h.length;b<d;b++)h[b].parentNode.removeChild(h[b])}};"undefined"!==typeof exports?("undefined"!==typeof module&&module.exports&&(exports=module.exports=c),exports.ich=c):this.ich=c;"undefined"!==typeof document&&(c.$?c.$(function(){c.grabTemplates()}):document.addEventListener("DOMContentLoaded",function(){c.grabTemplates()},!0))})()})();
 
 $(function () {
+    var ich = this.ich || window.ich
     var user = location.host.split('.')[0];
     var page_styles = {
         '#projects': 'project_page',
