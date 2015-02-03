@@ -1,0 +1,34 @@
+---
+layout: post
+title: Introducing gister
+date: '2011-12-11T05:57:00-08:00'
+tags:
+- cli
+- gist
+- github
+- javascript
+- node.js
+- npm
+tumblr_url: http://www.goatslacker.com/post/14063661035/introducing-gister
+---
+<a href="https://github.com/goatslacker/gister">Introducing gister</a><br/><p>A nodejs module for programmatic access to create, edit and retrieve gists from github.</p>
+<p>There are quite a few gist libraries available from npm. Most were CLI apps to create new gists, others didn’t exactly meet my needs. So I set out to create <code>gister</code> which provides what I think is a simple API. It follows the observer pattern and uses <code>request</code> to talk to GitHub.</p>
+<p><a href="http://goatslacker.github.com/gister">Read the annotated source</a> or check out <a href="https://github.com/goatslacker/gister">the code</a>.</p>
+<p>Using it is really simple. Here’s how you retrieve a gist with <code>gist_id = 1</code>:</p>
+<pre><code>var gist = new Gist({ gist_id: 1 });
+gist.on('get', function (data) {
+  // do something with data
+});
+gist.get();
+</code></pre>
+<p>Creating a new gist is similar, although you’ll need to provide Gist with your GitHub username and Secret API Token which can be found in your <a href="https://github.com/account/admin">Account Settings</a></p>
+<pre><code>var gist = new Gist({ username: 'goatslacker', token: 'abc123' });
+gist.on('created', function (data, gist_id) {
+  // gist_id is the newly created gist id
+  // data is what github returns in it's reply
+});
+gist.create();
+</code></pre>
+<p>Available on npm. Install:</p>
+<pre><code>npm install gister
+</code></pre>

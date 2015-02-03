@@ -1,0 +1,41 @@
+---
+layout: post
+title: On case against coffeescript...
+date: '2011-12-13T17:17:00-08:00'
+tags:
+- coffeescript
+- javascript
+tumblr_url: http://www.goatslacker.com/post/14192251296/on-case-against-coffeescript
+---
+<a href="http://ryanflorence.com/2011/2012/case-against-coffeescript/">On case against coffeescript...</a><br/><p>There are basically a few arguments against using CoffeeScript and at the end of the article Ryan Florence suggests one to not use it. It basically boils down to these cases:</p>
+<ul><li>Debugging is an issue</li>
+<li>Verbally Readable&#160;!== Quicker Comprehension</li>
+<li>One liners are horrible</li>
+<li>CoffeeScript has it’s bad parts</li>
+<li>Significant whitespace + Spaghetti code is bad</li>
+<li>CoffeeScript will never be supported natively.</li>
+</ul><h2>Debugging is an issue</h2>
+<p>So yes, debugging is an issue. Hopefully this can be solved soon by  <a href="https://github.com/mozilla/source-map">SourceMap</a>.</p>
+<h2>Verbally Readable does not mean Quicker Comprehension.</h2>
+<p>I agree, in fact I comprehend <code>Verbally Readable !== Quicker Comprehension</code> quicker than I do the title. But the nice thing about CoffeeScript is that <strong>it’s just JavaScript</strong> so the lengthy wordy operators are <em>optional.</em></p>
+<p>You could always write in CoffeeScript:</p>
+<pre><code>one &amp;&amp; two &amp;&amp; three
+</code></pre>
+<p>instead of</p>
+<pre><code>one and two and three
+</code></pre>
+<h2>One liners are horrible</h2>
+<p>Here’s an example from the blog:</p>
+<pre><code>scores = (student["assignment_#{@assignment.id}"].score for own idx, student of @gradebook.students when student["assignment_#{@assignment.id}"]?.score?)
+</code></pre>
+<p>Right, that’s not easy to comprehend. In this particular case I don’t blame the language but the author.</p>
+<p>Sure the CoffeeScript documentation touts how it turns verbose JavaScript into “nice” and “sexy” one-liners but that doesn’t mean one should abuse it.</p>
+<h2>CoffeeScript has it’s bad parts</h2>
+<p>So does every other language. I  think the good parts of the language outweigh the bad parts.</p>
+<h2>Significant whitespace + spaghetti code is bad</h2>
+<p>Spaghetti code itself is bad. I don’t care what language you write it in. It’ll always look like shit.</p>
+<p>It seems like now we’re talking about preferring one type of spaghetti over another type of spaghetti — it’s still spaghetti.</p>
+<h2>CoffeeScript will never be supported natively</h2>
+<p>Is that really a bad thing?</p>
+<h2>Overall</h2>
+<p>I still believe the expressiveness and useful features that CoffeeScript provides outweighs the biggest problem which is debugging.</p>

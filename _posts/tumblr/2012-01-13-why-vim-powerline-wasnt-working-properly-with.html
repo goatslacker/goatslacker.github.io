@@ -1,0 +1,41 @@
+---
+layout: post
+title: Why vim-powerline wasn't working properly with some of my files
+date: '2012-01-13T23:31:02-08:00'
+tags:
+- highlighting
+- mango.vim
+- syntax
+- vim
+- vim-powerline
+- vimrc
+tumblr_url: http://www.goatslacker.com/post/15818413221/why-vim-powerline-wasnt-working-properly-with
+---
+<p>Recently I&#8217;ve been using this vim plugin called <a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a> which has plenty of nice features like</p>
+
+<ul><li>Which git branch you&#8217;re currently on</li>
+<li>Filetype and encoding</li>
+<li>Line number/Character</li>
+<li>Changes color for Insert mode</li>
+</ul><p>I highly recommend it.</p>
+
+<p>Anyways, <code>vim-powerline</code> wasn&#8217;t working properly on my laptop though. Some files like <code>.gitignore</code> would work whereas others like <code>sample.coffee</code> wouldn&#8217;t. If I removed my <code>~/.vim/ftdetect</code> folder most files would work but that wasn&#8217;t the solution.</p>
+
+<p>I finally narrowed it down to my custom syntax highlighting colour scheme <a href="https://github.com/goatslacker/mango.vim">mango.vim</a>. The offending line was this:</p>
+
+<pre><code>highlight clear
+</code></pre>
+
+<p>After looking into it I found out that <code>highlight clear</code> was clearing all of <code>vim-powerline's</code> styles so for files where syntax highlighting was turned on, the plugin wasn&#8217;t working as expected.</p>
+
+<p>So if you&#8217;re having difficulties installing vim-powerline, check to make sure your color scheme isn&#8217;t clearing highlights. Dark color schemes commonly have this set.</p>
+
+<p>Installing <code>vim-powerline</code> is fairly easy. You&#8217;ll need to be on an 88 || 256 color terminal &#8212; so if you&#8217;re on OSX I definitely recommend <a href="http://www.iterm2.com/#/section/home">iTerm2</a>.</p>
+
+<p>In your <code>.vimrc</code> file you&#8217;ll set the following</p>
+
+<pre><code>set nocompatible
+set t_Co=256
+</code></pre>
+
+<p>Make sure <code>Powerline.vim</code> is in <code>~/.vim/plugin/</code> and <code>Pl</code> folder and <code>Pl.vim</code> is in <code>~/.vim/autoload/</code> and you should be all set.</p>

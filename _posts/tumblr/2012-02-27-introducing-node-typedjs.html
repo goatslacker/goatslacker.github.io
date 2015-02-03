@@ -1,0 +1,70 @@
+---
+layout: post
+title: Introducing node-typedjs
+date: '2012-02-27T08:00:05-08:00'
+tags:
+- javascript
+- coffeescript
+- type safety
+- haskell
+- type signatures
+- code quality
+- testing
+- unit tests
+- contracts
+- node.js
+- static typing
+tumblr_url: http://www.goatslacker.com/post/18381591530/introducing-node-typedjs
+---
+<p><a href="https://github.com/goatslacker/node-typedjs">node-typedjs</a> is the node module, and more, for <a href="http://typedjs.com">TypedJS</a></p>
+<p>TypedJS is described as &#8220;lightweight program specifications for testing JavaScript&#8221;</p>
+<p>In a nutshell you can annotate your functions with Haskell-like type signatures and then run a set of tests against those functions thus ensuring type safety. TypedJS will probably help you find some bugs in your code that you otherwise may not have found.</p>
+<h2>What it does</h2>
+<p><code>node-typedjs</code> helps you test your JavaScript projects via the command line or programatically.</p>
+<p>It gives you access to a few neat features like <code>contracts</code> via the <code>enforce()</code> method which enforce the types at runtime.</p>
+<p>The <code>contracts</code> can be used along with your unit tests to assert that your functions are behaving as intended.</p>
+<p>Similar to <a href="http://disnetdev.com/contracts.coffee/">contracts.coffee</a>, typedjs aims at solving the problem differently.</p>
+<ul><li>TypedJS is focused on JavaScript. But it also works on CoffeeScript just as well.</li>
+<li>The type signatures are comments. So there is no extra compilation and the signatures are unobtrusive.</li>
+</ul><h2>Examples</h2>
+<p><code>addition.js</code> contains your function along with its type signature.</p>
+<pre><code>//+ add :: Number Number -&gt; Number
+function add(a, b) {
+  return a + b;
+}</code></pre>
+<p><code>addition-test.js</code> is your unit test as well as the typedjs checks.</p>
+<pre><code>var typedjs = require('typedjs');
+var fs = require('fs');
+var assert = require('assert');
+
+typedjs.enforce(fs.readFileSync('addition.js').toString());
+
+typedjs.run(function (context) {
+  assert.equal(context.square(3), 9); // pass
+  assert.equal(context.square('foo', 'bar'), 'foobar'); // fail
+});</code></pre>
+<p>Even though both assertions would pass, the typedjs check will fail on the second call since a number is expected.</p>
+<p><code>node-typedjs</code> will let you:</p>
+<ul><li>Run automated tests on your code.</li>
+<li>Run automated tests on functions individually.</li>
+<li>Extract all functions from a file (regardless of closures) and run automated tests on them.</li>
+<li>Use it along with your unit tests to assert your functions are behaving correctly.</li>
+</ul><h2>Getting node-typedjs</h2>
+<p>You will need <a href="http://nodejs.org/#download">node.js</a></p>
+<p>Install using npm</p>
+<p>Locally:</p>
+<pre><code>$ npm install typedjs</code></pre>
+<p>Globally</p>
+<pre><code>$ npm install typedjs -g</code></pre>
+<h2>Standing on the shoulders of giants</h2>
+<p><code>node-typedjs</code> would not be possible without open-source software such as</p>
+<ul><li><a href="https://github.com/Proxino/TypedJS">TypedJS</a> by <a href="http://ethanfast.com/">Ethan Fast</a></li>
+<li><a href="https://github.com/ariya/esprima">esprima</a> by <a href="http://ariya.ofilabs.com/about">Ariya Hidayat</a></li>
+</ul><h2>Resources</h2>
+<ul><li><a href="https://github.com/goatslacker/node-typedjs">Fork this project on GitHub</a></li>
+<li><a href="https://github.com/goatslacker/node-typedjs/issues">Report Issues</a></li>
+<li><a href="https://github.com/goatslacker/node-typedjs/wiki/Type-Syntax">Type Signatures Reference Manual</a></li>
+<li><a href="http://typedjs.com/">TypedJS website</a></li>
+<li><a href="https://twitter.com/goatslacker">Follow me on Twitter</a></li>
+</ul><h2>License</h2>
+<p><a href="http://josh.mit-license.org">MIT LICENSE</a></p>

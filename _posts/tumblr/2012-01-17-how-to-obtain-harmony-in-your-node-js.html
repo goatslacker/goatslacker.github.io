@@ -1,0 +1,53 @@
+---
+layout: post
+title: How to obtain harmony in your node.js
+date: '2012-01-17T00:12:00-08:00'
+tags:
+- ecmascript
+- es6
+- esnext
+- harmony
+- javascript
+- node.js
+- v8
+tumblr_url: http://www.goatslacker.com/post/16000243520/how-to-obtain-harmony-in-your-node-js
+---
+<p><strong>UPDATE!</strong> <a href="https://twitter.com/3rdEden">3rdEden</a> has <a href="https://twitter.com/#!/3rdEden/status/159748109012959233">pointed</a> <a href="http://cl.ly/0K1H3b1j1J072l1h3X3V">out</a> that it&#8217;s possible to get harmony in node 0.6</p>
+<p>You can get it by using a flag when invoking node through the command line</p>
+<pre><code>node --harmony_typeof --harmony_block_scoping --harmony_proxies --harmony_weakmaps file.js</code></pre>
+<p>Or if you&#8217;re using node 0.7.x</p>
+<pre><code>node --harmony file.js</code></pre>
+<p>Harmony!!!!1</p>
+<hr><p>Enable ECMAScript’s new features and syntax in node point javascript.</p>
+<p><a href="http://blog.nodejs.org/2012/01/16/node-v0-7-0-unstable/">Node unstable has just been released</a> and with that V8 has been upgraded to 3.8.6 which contains <a href="http://www.google.com/codesearch#W9JxUuHYyMg/trunk/src/flag-definitions.h&amp;q=harmony%20package:http://v8%5C.googlecode%5C.com&amp;l=109">flags for experimental language features</a>.</p>
+<p>By default those flags are turned off, but you can always turn them on. Here’s how:</p>
+<p><strong>Download node 0.7.0.</strong></p>
+<p>If you’ve got it cloned on git run a <code>git fetch</code> and then <code>git checkout v0.7.0</code> otherwise read the <a href="http://blog.nodejs.org/2012/01/16/node-v0-7-0-unstable/">release notes</a> for instructions on where to download.</p>
+<p><strong>Set harmony flag to true in V8</strong></p>
+<p>Once you’ve got the source code, open up <code>deps/v8/src/flag-definitions.h</code> and look for Line 115</p>
+<p>Change the flag from <code>false</code> to <code>true</code>.</p>
+<pre><code>DEFINE_bool(harmony, true, "enable all harmony features")</code></pre>
+<p><strong>Compile Node</strong></p>
+<pre><code>./configure &amp;&amp; make &amp;&amp; make install
+</code></pre>
+<p><strong>Have fun!</strong></p>
+<pre><code>function foo() {
+  "use strict";
+  let i = -1;
+
+  for (let i = 0; i &lt; 10; i += 1) {
+    console.log(i); // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+  }
+
+  console.log(i); // -1
+}
+
+foo();
+</code></pre>
+<p><strong>NOTE:</strong> you’ll need to use <code>"use strict";</code> otherwise the code above will not run.</p>
+<p>By doing this you’ll get:</p>
+<ul><li>Sets, Maps, and Weak Maps</li>
+<li>Block scoping</li>
+<li>Proxies</li>
+<li>New typeof semantics</li>
+</ul><p>Learn more about <a href="http://wiki.ecmascript.org/doku.php?id=harmony:harmony">ES harmony</a></p>
