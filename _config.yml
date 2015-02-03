@@ -1,8 +1,8 @@
 # Site settings
-title: Words from Josh
+title: Blog
 email: josh@goatslacker.com
 description: > # this means to ignore newlines until "baseurl:"
-  This is a place for some words
+  Things about Software
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://words.goatslacker.com" # the base hostname & protocol for your site
 twitter_username: goatslacker
