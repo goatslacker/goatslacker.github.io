@@ -1,0 +1,25 @@
+---
+layout: post
+title: You are not a language, but you should filter your opportunities by them.
+date: '2011-11-29T02:51:00-08:00'
+tags:
+- happiness
+- jobs
+- languages
+- life
+- opportunities
+- programming
+- recruting
+- ruby
+- silicon
+- valley
+tumblr_url: http://www.goatslacker.com/post/13496227007/you-are-not-a-language-but-you-should-filter-your
+---
+A couple days ago I came across this interesting blog post Developers: You are not a Language
+I agree, we aren’t languages, we’re people and as the blog states we are also “problem-crushing warrior[s]” and “architect[s] of logic”
+What I don’t agree with is not filtering job opportunities by language.
+Someone once told me “It’s just a tool” referring to a programming language we were discussing when I made a certain remark about that particular language. And that person is 100% correct, programming languages are just tools and you should use the right tool for the right job. But some people perhaps don’t like to use certain tools, or they don’t like to solve the problems that those tools are fit for.
+I actually like thinking of programming languages more as a weapon. One that takes time, practice and patience to master. A weapon that is fun to learn and use once you master it.
+The post says that if you look for a “ruby job” you’ll end up with a “ruby job” but if you look for a “great opportunity” then you’ll find that.
+Well why can’t you look for a great opportunity where you’ll end up using ruby? You can. Opportunities are everywhere and great is subjective.
+So my advice is to seek the best opportunity which will let you wield whatever weapon you’re most interested in.
